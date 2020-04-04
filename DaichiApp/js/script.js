@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const DB = firebase.firestore();
 const FIRST = DB.collection('first');
+const SECOND = DB.collection('second');
 
 let hairetsu = [];
 FIRST.get().then((querySnapshot) => {
@@ -30,11 +31,20 @@ FIRST.get().then((querySnapshot) => {
     }
 });
 
-
-
-
-
-
+let haire2 = [];
+SECOND.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        data = doc.data();
+        haire2.push([data.post_id, data.post_introduction]);
+    });
+    for(let i = 0; i < haire2.length; i++){
+        let postList = document.getElementById("post-list");
+        let li = document.createElement('li');
+        li.textContent = haire2[i][0];
+        console.log(haire2[i][0]);
+        postList.appendChild(li);
+    }
+});
 
 
 
