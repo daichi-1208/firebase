@@ -50,7 +50,7 @@ function OnButtonClick() {
 SECOND.doc("2").set({
     introduction: "登録したぞ～",
     post_id: 2,
-    post_name: "こうしん新規で登録したpostnameだよ★"
+    post_name: "こうしん新規で登録したpostnameだよ=="
 })
 .then(()=>{
     console.log("更新に成功しましたー");
