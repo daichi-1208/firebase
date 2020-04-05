@@ -26,24 +26,37 @@ FIRST.get().then((querySnapshot) => {
         let userList = document.getElementById("user-list");
         let li = document.createElement('li');
         li.textContent = hairetsu[i][0];
-        console.log(hairetsu[i][0]);
         userList.appendChild(li);
     }
 });
 
-let haire2 = [];
-SECOND.get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        data = doc.data();
-        haire2.push([data.post_id, data.post_introduction]);
+function OnButtonClick() {
+    let haire2 = [];
+    SECOND.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            data = doc.data();
+            haire2.push([data.post_id, data.introduction]);
+        });
+        for(let i = 0; i < haire2.length; i++){
+            let postList = document.getElementById("post-list");
+            let li = document.createElement('li');
+            li.textContent = haire2[i][0] + haire2[i][1];
+            console.log(haire2[i][0]);
+            postList.appendChild(li);
+        }
     });
-    for(let i = 0; i < haire2.length; i++){
-        let postList = document.getElementById("post-list");
-        let li = document.createElement('li');
-        li.textContent = haire2[i][0];
-        console.log(haire2[i][0]);
-        postList.appendChild(li);
-    }
+}
+
+SECOND.doc("2").set({
+    introduction: "登録したぞ～～",
+    post_id: 2,
+    post_name: "こうしん新規で登録したpostnameだよ★"
+})
+.then(()=>{
+    console.log("更新に成功しました");
+})
+.catch((error)=>{
+    console.log(`更新に失敗しました (${error})`);
 });
 
 
