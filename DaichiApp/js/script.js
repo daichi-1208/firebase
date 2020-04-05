@@ -53,7 +53,7 @@ SECOND.doc("2").set({
     post_name: "こうしん新規で登録したpostnameだよ★"
 })
 .then(()=>{
-    console.log("更新に成功しました");
+    console.log("更新に成功しましたー");
 })
 .catch((error)=>{
     console.log(`更新に失敗しました (${error})`);
