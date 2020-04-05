@@ -48,7 +48,7 @@ function OnButtonClick() {
 }
 
 SECOND.doc("2").set({
-    introduction: "登録したぞ～～",
+    introduction: "登録したぞ～",
     post_id: 2,
     post_name: "こうしん新規で登録したpostnameだよ★"
 })
